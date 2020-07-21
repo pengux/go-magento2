@@ -22,6 +22,7 @@ type Customer struct {
 
 // CustomerAddress represents an address for a customer in Magento
 type CustomerAddress struct {
+	ID              int64    `json:"id"`
 	CountryID       string   `json:"country_id"`
 	Street          []string `json:"street"`
 	Company         string   `json:"company"`
