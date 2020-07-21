@@ -80,6 +80,9 @@ func (c *Client) newRequest(
 	method, url string,
 	payload interface{},
 ) (*http.Request, error) {
+	var req *http.Request
+	var err error
+
 	var reqPayload *bytes.Buffer
 	if payload != nil {
 		b, err := json.Marshal(&payload)
@@ -90,7 +93,11 @@ func (c *Client) newRequest(
 		reqPayload = bytes.NewBuffer(b)
 	}
 
-	req, err := http.NewRequest(method, c.baseURL+url, reqPayload)
+	if reqPayload != nil {
+		req, err = http.NewRequest(method, c.baseURL+url, reqPayload)
+	} else {
+		req, err = http.NewRequest(method, c.baseURL+url, nil)
+	}
 	if err != nil {
 		return nil, fmt.Errorf("could not create new http.Request: %w", err)
 	}
