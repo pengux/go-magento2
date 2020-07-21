@@ -7,13 +7,17 @@ import (
 
 // Customer represents a customer entity in Magento
 type Customer struct {
-	ID        int64             `json:"id"`
-	GroupID   int64             `json:"group_id"`
-	Firstname string            `json:"firstname"`
-	Lastname  string            `json:"lastname"`
-	Email     string            `json:"email"`
-	WebsiteID int64             `json:"website_id"`
-	Addresses []CustomerAddress `json:"addresses"`
+	ID              int64             `json:"id"`
+	GroupID         int64             `json:"group_id"`
+	Firstname       string            `json:"firstname"`
+	Lastname        string            `json:"lastname"`
+	Email           string            `json:"email"`
+	CreatedIn       string            `json:"created_in"`
+	StoreID         int64             `json:"store_id"`
+	WebsiteID       int64             `json:"website_id"`
+	DefaultBilling  string            `json:"default_billing"`
+	DefaultShipping string            `json:"default_shipping"`
+	Addresses       []CustomerAddress `json:"addresses"`
 }
 
 // CustomerAddress represents an address for a customer in Magento
