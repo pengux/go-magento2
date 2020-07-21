@@ -22,14 +22,16 @@ type Customer struct {
 
 // CustomerAddress represents an address for a customer in Magento
 type CustomerAddress struct {
-	CountryID string   `json:"country_id"`
-	Street    []string `json:"street"`
-	Company   string   `json:"company"`
-	Telephone string   `json:"telephone"`
-	Postcode  string   `json:"postcode"`
-	Firstname string   `json:"firstname"`
-	Lastname  string   `json:"lastname"`
-	City      string   `json:"city"`
+	CountryID       string   `json:"country_id"`
+	Street          []string `json:"street"`
+	Company         string   `json:"company"`
+	Telephone       string   `json:"telephone"`
+	Postcode        string   `json:"postcode"`
+	Firstname       string   `json:"firstname"`
+	Lastname        string   `json:"lastname"`
+	City            string   `json:"city"`
+	DefaultBilling  bool     `json:"default_billing"`  // Whether to use this address as default for billing address
+	DefaultShipping bool     `json:"default_shipping"` // Whether to use this address as default for shipping address
 }
 
 const (
